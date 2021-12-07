@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block container %}
+<table class="table my_table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Manager</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dept in departments %}
+            <tr href="{% url 'department-detail' dept.id %}">
+                <td>{{dept.name}}</td>
+                <td>{{dept.manager}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% if is_paginated %}
+    {% include "pagination.html" %}
+{% endif %}
+
+{% endblock %}
+
+
+{% block custom_js %}
+    <script>
+    $("tr").click(function(){
+        var href = $(this).attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+    </script>
+{% endblock %}
+

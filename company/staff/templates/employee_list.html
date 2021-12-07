@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div class="create_button">
+    <button type="button"
+            class="btn btn-success"
+            id="employee_create"
+            href="{% url 'employee-create' %}">Create</button>
+</div>
+
+<table class="table my_table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Email</th>
+                <th scope="col">DOB</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in employees %}
+            <tr href="{% url 'employee-detail' emp.id %}">
+                <td>{{emp.name}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.dob}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% if is_paginated %}
+    {% include "pagination.html" %}
+{% endif %}
+
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+    $("tr").click(function(){
+        var href = $(this).attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+
+    $("#employee_create").click(function(){
+        var href = $(this).attr("href");
+        if(href) {
+            window.location = href;
+        }
+    });
+
+    </script>
+{% endblock %}
+
+
+
