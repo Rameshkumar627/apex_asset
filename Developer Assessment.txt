@@ -10,11 +10,10 @@ Django Questions :
 1. What command line interface instructions are required to create a django project called
 ‘company’ and application called ‘staff’?
 
-django-admin startproject company
-python manage.py startapp staff
+For creating project: django-admin startproject company
+For creating app: python manage.py startapp staff
 
 
- 
 2. models.py - Please use the django ORM framework to create the tables below.
 Employee table
 Employee name
@@ -27,37 +26,32 @@ Department name
 Manager (employee)
 
 
- 
 3. admin.py - Please implement the code to allow the admin interface to be used to
 manipulate the database for both the Employee and Department objects. When viewing
 the Employee objects you should be able to filter by department and date of birth. When
 creating/editing a Department object there should be inlines for each of the Employee
 objects in the Department.
 
-
  
 4. What command line interface instructions are required to be able to test the admin interface after you have completed #2 and #3 above?
 
-python manage.py makemigrations staff
-python manage.py migrate
-
+For check admin: django-admin check auth admin staff
+For check database: django-admin check --database default
 
  
 5. views.py (Department) - Using generic class-based views please write the following views for the Department objects: list and detail
 
 
- 
 6. forms.py - Create a ModelForm class to create an Employee object only entering the Employee name and Department fields.
  
 7. views.py (Employee) - Using a generic class-based view use the form in #6 in a create view for Employee objects. Is your models.py class for Employee compatible with the form and view?
-yes
+yes it is compatible with both form and views
 
  
 8. What template files would be required for the views in #5 and #7 to work? Where would you put these files?
-department_list.html
-employee_list.html
 
-path: company/staff/templates/
+For Department template : company/staff/templates/department_list.html
+For Employee template : company/staff/templates/employee_list.html
 
 
 

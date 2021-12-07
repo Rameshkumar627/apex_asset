@@ -64,7 +64,6 @@ class EmployeeDetailView(DetailView):
     context_object_name = 'employee'
 
 
-@method_decorator(login_required, name='dispatch')
 class EmployeeCreateView(CreateView):
     model = Employee
     template_name = 'employee_create.html'

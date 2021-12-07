@@ -9,4 +9,9 @@ python3 manage.py migrate
 
 # Insert pre-loaded data
 python3 manage.py loaddata staff_data.json
+
+# Create a super user for admin login
+python3 manage.py createsuperuser
 ```
+![This is an image](docs/pic_1.png)
+![This is an image](docs/pic_2.png)

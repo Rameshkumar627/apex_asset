@@ -3,7 +3,12 @@ from .models import Employee, Department
 from django.contrib.admin import DateFieldListFilter
 
 
+class EmployeeTabularInline(admin.TabularInline):
+    model = Employee
+
+
 class DepartmentAdmin(admin.ModelAdmin):
+    inlines = [EmployeeTabularInline]
     list_display = ('name', 'manager')
     search_fields = ['name', 'manager']
 
